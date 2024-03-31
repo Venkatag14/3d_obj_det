@@ -147,7 +147,7 @@ def detect3d(
             # plot 3d detection
             loc, corners, R, center, box_3d = plot3d(img, proj_matrix, box_2d, dim, alpha, theta_ray)
 
-            Object_count.append({"Location": loc, "Dim" : dim.tolist(), "Orientation" : orient.tolist() ,"Corners": corners, "R": R.tolist(), "Center": center, "Box_3d": box_3d, "Class": detected_class, "Box_2d": det.box_2d})
+            Object_count.append({"Location": loc, "Dim" : np.array(dim).tolist(), "Orientation" : np.array(orient).tolist() ,"Corners": corners, "R": R.tolist(), "Center": center, "Box_3d": np.array(box_3d).tolist(), "Class": detected_class, "Box_2d": det.box_2d})
 
         Frame_count.append({"Frame": i, "Objects": Object_count})
         # write it into json file
